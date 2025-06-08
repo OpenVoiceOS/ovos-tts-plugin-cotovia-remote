@@ -12,6 +12,7 @@
 #
 import requests
 from ovos_plugin_manager.templates.tts import TTS
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
 
 
@@ -79,8 +80,8 @@ class CotoviaRemoteTTSPlugin(TTS):
 
         return (wav_file, None)  # No phonemes
 
-    @property
-    def available_languages(self) -> set:
+    @classproperty
+    def available_languages(cls) -> set:
         """Return languages supported by this TTS implementation in this state
         This property should be overridden by the derived class to advertise
         what languages that engine supports.
